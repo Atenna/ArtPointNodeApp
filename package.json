@@ -1,0 +1,30 @@
+{
+  "name": "ArtPointApp",
+  "version": "0.0.1",
+  "description": "Filter Geo Data",
+  "main": "app.js",
+  "scripts": {
+    "start": "beefy app.js:bundle.js --live",
+    "bundle": "browserify app.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atenna/ArtPointNodeApp.git"
+  },
+  "keywords": [
+    "leaflet",
+    "maps",
+    "gis"
+  ],
+  "author": "Atenna",
+  "bugs": {
+    "url": "https://github.com/Atenna/ArtPointNodeApp.git/issues"
+  },
+  "dependencies": {
+    "leaflet": "^1.0.1"
+  },
+  "devDependencies": {
+    "beefy": "^2.1.8",
+    "browserify": "^13.1.1"
+  }
+}
