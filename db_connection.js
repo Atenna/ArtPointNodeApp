@@ -2,22 +2,19 @@
  * Created by liesky on 05/11/2018.
  */
 var mysql = require('mysql')
+var config = require('./config.js');
+var connection = mysql.createConnection(config);
 
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "yourpasword",
-    database: "artpointdb"
+
+function getPoiByType(conn, typesArray) {
+    var call = "CALL GetPoiByType(?)";
+    connection.query(call, typesArray, (error, results, fields) => {
+        if (error) {
+            return console.error(error.message);
+        }
+        console.log(results[0]);
 });
+}
 
-con.connect(function (err) {
-    var type = '%Museum%';
-    if(err) throw err;
-    console.log("Connected!");
-    var sql = "SELECT * from types WHERE type LIKE ?"
-    con.query(sql, [type], function(err, result) {
-        if (err) throw err;
-        console.log(result); // result[2].type
-    } )
-});
-
+var types = "1,2";
+getPoiByType(connection, types);
